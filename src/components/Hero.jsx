@@ -37,12 +37,12 @@ export default function Hero() {
             </div>
             <span className="stat-sep">|</span>
             <div className="hero-stat">
-              <span className="stat-number">4</span>
+              <span className="stat-number">5</span>
               <span className="stat-label">Especialistas</span>
             </div>
             <span className="stat-sep">|</span>
             <div className="hero-stat">
-              <span className="stat-number">3</span>
+              <span className="stat-number">4</span>
               <span className="stat-label">Áreas de atuação</span>
             </div>
           </div>
