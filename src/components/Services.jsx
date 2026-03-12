@@ -38,6 +38,19 @@ const services = [
       "Suporte e atualizações pós-lançamento",
     ],
   },
+  {
+    icon: "🔧",
+    title: "Concerto de Celular, Notebooks e PCs",
+    desc: "Reparos especializados em dispositivos móveis e computadores, com diagnóstico rápido e soluções eficientes.",
+    items: [
+      "Reparo e manutenção de celulares",
+      "Conserto de notebooks e computadores",
+      "Limpeza e otimização de hardware",
+      "Troca de peças e componentes",
+      "Recuperação de dados",
+      "Diagnóstico técnico completo",
+    ],
+  },
 ]
 
 export default function Services() {

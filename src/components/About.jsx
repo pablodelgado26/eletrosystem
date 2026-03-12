@@ -19,6 +19,11 @@ const features = [
     title: "Entrega Ágil",
     desc: "Prazos cumpridos sem abrir mão da qualidade",
   },
+  {
+    icon: "🔧",
+    title: "Reparo de Dispositivos",
+    desc: "Concerto de celular, notebooks e PCs",
+  },
 ]
 
 export default function About() {
@@ -64,8 +69,8 @@ export default function About() {
             <p>
               Atendemos clientes residenciais, comerciais e industriais, entregando projetos
               elétricos com total segurança e conformidade com as normas ABNT, além de websites
-              responsivos e aplicativos mobile desenvolvidos com as tecnologias mais modernas
-              do mercado.
+              responsivos, aplicativos mobile desenvolvidos com as tecnologias mais modernas
+              do mercado e serviços especializados de concerto de celular, notebooks e PCs.
             </p>
             <p>
               Nossa equipe multidisciplinar garante que cada projeto seja tratado com

@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -18,40 +20,36 @@ export default function Footer() {
             </p>
             <div className="footer-socials">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/eletrosystembrasil?igsh=M3NodnZoeTB0NTNr"
                 className="social-btn"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                📸
+                <Image
+                  src="/image/instagram.png"
+                  alt="Instagram"
+                  width={18}
+                  height={18}
+                  className="social-icon"
+                />
               </a>
+
+
               <a
-                href="https://linkedin.com"
-                className="social-btn"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                💼
-              </a>
-              <a
-                href="https://github.com/pablodelgado26/eletrosystem"
-                className="social-btn"
-                aria-label="GitHub"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                🐙
-              </a>
-              <a
-                href="https://wa.me/5511998408572"
+                href="https://wa.me/5519992813822"
                 className="social-btn"
                 aria-label="WhatsApp"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                💬
+                <Image
+                  src="/image/whatsapp.png"
+                  alt="WhatsApp"
+                  width={18}
+                  height={18}
+                  className="social-icon"
+                />
               </a>
             </div>
           </div>
@@ -83,18 +81,52 @@ export default function Footer() {
             <h4>Contato</h4>
             <ul className="footer-links">
               <li>
-                <a href="mailto:contato@eletrosystem.com.br">
-                  📧 contato@eletrosystem.com.br
+                <a href="mailto:eletrosystembr@gmail.com">
+                  eletrosystembr@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+5511998408572">
-                  📞 (11) 9 9840-8572
+                <a href="tel:+5519992813822">
+                  📞 (19) 99928-13822
                 </a>
               </li>
               <li>
                 <a href="#contato">
-                  📍 São Paulo, SP
+                  📍 Campinas, SP
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/eletrosystembrasil?igsh=M3NodnZoeTB0NTNr"
+                  className="footer-contact-social"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/image/instagram.png"
+                    alt="Instagram"
+                    width={18}
+                    height={18}
+                    className="social-icon"
+                  />
+                  @eletrosystembrasil
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/5519992813822"
+                  className="footer-contact-social"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/image/whatsapp.png"
+                    alt="WhatsApp"
+                    width={18}
+                    height={18}
+                    className="social-icon"
+                  />
+                  WhatsApp
                 </a>
               </li>
             </ul>

@@ -605,26 +605,38 @@ img {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
 .team-card {
   display: flex;
-  gap: 1.5rem;
-  padding: 2rem;
+  flex-direction: column;
+  overflow: hidden;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius);
   transition: var(--transition);
-  align-items: flex-start;
 }
 
 .team-card:hover {
   border-color: var(--border);
   background: var(--bg-card-hover);
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow);
+}
+
+.team-card:hover .team-avatar-img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.team-avatar-img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  transition: var(--transition);
+  display: block;
 }
 
 .team-avatar {
@@ -651,7 +663,10 @@ img {
 }
 
 .team-info {
+  padding: 2rem;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-name {
@@ -847,6 +862,18 @@ img {
   color: var(--text-secondary);
 }
 
+.form-error {
+  margin-bottom: 1rem;
+  color: #ff8f8f;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 /* ===== RODAPÉ ===== */
 
 .footer {
@@ -900,6 +927,12 @@ img {
   cursor: pointer;
 }
 
+.social-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
 .social-btn:hover {
   border-color: var(--border);
   color: var(--yellow);
@@ -926,6 +959,12 @@ img {
   font-size: 0.875rem;
   color: var(--text-muted);
   transition: var(--transition);
+}
+
+.footer-contact-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .footer-links a:hover {
@@ -1041,15 +1080,13 @@ img {
     grid-template-columns: 1fr;
   }
   .team-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .team-card {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
   }
   .team-badges {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .contact-wrapper {
     grid-template-columns: 1fr;
@@ -1082,5 +1119,11 @@ img {
   }
   .about-features {
     grid-template-columns: 1fr;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-avatar-img {
+    height: 280px;
   }
 }

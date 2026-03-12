@@ -1,7 +1,10 @@
+import Image from "next/image"
+
 const members = [
   {
     name: "Pablo Delgado",
     role: "Fundador & Dev Full-Stack",
+    image: "/team/pablo.jpeg",
     initials: "PD",
     color: "#FFD700",
     bio: "Especialista em desenvolvimento full-stack e arquitetura de sistemas. Pablo lidera os projetos de tecnologia da EletroSystem com expertise em múltiplas linguagens e frameworks modernos, garantindo soluções escaláveis e de alta performance.",
@@ -14,6 +17,7 @@ const members = [
   {
     name: "Miguel Sarti",
     role: "Desenvolvedor Full-Stack",
+    image: "/team/miguel.jpeg",
     initials: "MS",
     color: "#4FC3F7",
     bio: "Com sólida formação em engenharia da computação, Miguel é responsável pelo desenvolvimento de aplicações web e mobile, trazendo soluções inovadoras e interfaces modernas que encantam os usuários.",
@@ -25,6 +29,7 @@ const members = [
   {
     name: "Lucas Zani",
     role: "Desenvolvedor & Arquiteto de Sistemas",
+    image: "/team/lucas.jpeg",
     initials: "LZ",
     color: "#81C784",
     bio: "Lucas combina profundo conhecimento em engenharia da computação com habilidades técnicas avançadas para criar sistemas robustos e eficientes, sempre garantindo a qualidade e a manutenibilidade dos projetos entregues.",
@@ -36,11 +41,24 @@ const members = [
   {
     name: "Antonio Pacheco",
     role: "Especialista em Eletroeletrônica",
+    image: "/team/antonio.jpeg",
     initials: "AP",
     color: "#FF8A65",
     bio: "Especialista em instalações elétricas e sistemas eletroeletrônicos, Antonio é o responsável por toda a infraestrutura elétrica da EletroSystem. Seu rigor técnico garante instalações seguras, eficientes e em conformidade com todas as normas vigentes.",
     badges: [
       "Téc. em Eletroeletrônica",
+    ],
+  },
+  {
+    name: "Cauã Carvalho",
+    role: "Técnico em Hardware e Desenvolvimento",
+    image: "/team/caua.jpeg",
+    initials: "CC",
+    color: "#BA68C8",
+    bio: "Técnico especializado em desenvolvimento de sistemas e hardware, Cauã é responsável pela manutenção e reparo de dispositivos eletrônicos, celulares, notebooks e PCs. Sua expertise técnica garante diagnósticos precisos e soluções rápidas para todos os problemas de hardware e software.",
+    badges: [
+      "Técnico em Desenvolvimento de Sistemas",
+      "Especialista em Hardware",
     ],
   },
 ]
@@ -64,14 +82,13 @@ export default function Team() {
         <div className="team-grid">
           {members.map((member) => (
             <div className="team-card" key={member.name}>
-              <div
-                className="team-avatar"
-                style={{ background: `linear-gradient(135deg, ${member.color}22, #0C1E33)`, border: `2px solid ${member.color}44` }}
-              >
-                <span style={{ color: member.color, fontSize: "1.9rem", fontWeight: 900 }}>
-                  {member.initials}
-                </span>
-              </div>
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={400}
+                height={340}
+                className="team-avatar-img"
+              />
               <div className="team-info">
                 <h3 className="team-name">{member.name}</h3>
                 <p className="team-role">{member.role}</p>

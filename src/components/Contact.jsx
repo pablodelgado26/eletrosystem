@@ -3,23 +3,67 @@
 import { useState } from "react"
 
 const contactItems = [
-  { icon: "📧", label: "E-mail", value: "contato@eletrosystem.com.br" },
-  { icon: "📞", label: "Telefone", value: "(11) 9 9840-8572" },
-  { icon: "📍", label: "Localização", value: "São Paulo, SP — Brasil" },
+  { icon: "📧", label: "E-mail", value: "eletrosystembr@gmail.com" },
+  { icon: "📞", label: "Telefone", value: "(19) 99281-3822" },
+  { icon: "📍", label: "Localização", value: "Campinas, SP — Brasil" },
   { icon: "⏰", label: "Horário", value: "Seg–Sex, das 8h às 18h" },
 ]
+
+const serviceLabels = {
+  eletrica: "Instalações Elétricas",
+  site: "Criação de Site",
+  app: "Desenvolvimento de App",
+  celular: "Conserto de Celular",
+  combo: "Pacote Completo",
+  outro: "Outro",
+}
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" })
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState("")
 
   function handleChange(e) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    setSent(true)
+    setSending(true)
+    setError("")
+
+    const selectedServiceLabel = serviceLabels[form.service] ?? "Não informado"
+    const subject = `Novo contato - ${selectedServiceLabel}`
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvzwrbae", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: subject,
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: selectedServiceLabel,
+          message: form.message,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Falha ao enviar o formulário")
+      }
+
+      setSent(true)
+      setForm({ name: "", email: "", phone: "", service: "", message: "" })
+    } catch {
+      setError("Não foi possível enviar sua mensagem agora. Tente novamente em instantes.")
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -122,6 +166,7 @@ export default function Contact() {
                         <option value="eletrica">Instalações Elétricas</option>
                         <option value="site">Criação de Site</option>
                         <option value="app">Desenvolvimento de App</option>
+                        <option value="celular">Conserto de Celular</option>
                         <option value="combo">Pacote Completo</option>
                         <option value="outro">Outro</option>
                       </select>
@@ -140,8 +185,10 @@ export default function Contact() {
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary" style={{ width: "100%" }}>
-                    Enviar Mensagem ✉️
+                  {error ? <p className="form-error">{error}</p> : null}
+
+                  <button type="submit" className="btn btn-primary" style={{ width: "100%" }} disabled={sending}>
+                    {sending ? "Enviando..." : "Enviar Mensagem"}
                   </button>
                 </form>
               </>
